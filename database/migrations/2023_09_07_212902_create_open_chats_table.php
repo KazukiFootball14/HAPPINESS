@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('recruitments', function (Blueprint $table) {
+        Schema::create('open_chats', function (Blueprint $table) {
             $table->id();
+            $table->string("message");
+            $table->foreignId("user_id")->constrained();
+            $table->foreignId("recruitment_id")->constrained();
+            $table->foreignId("post_id")->constrained();
+            $table->timestamps("created_at");
+            $table->timestamps("updated_at");
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recruitments');
+        Schema::dropIfExists('open_chats');
     }
 };

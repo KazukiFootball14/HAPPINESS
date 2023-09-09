@@ -14,4 +14,4 @@ use App\Http\Controllers\RecruitmentController;
 |
 */
 
-Route::get('/recruitments', [RecruitmentController::class, 'index']); 
+Route::get('/', [RecruitmentController::class, 'index']);
